@@ -7,6 +7,9 @@ class Server {
         this.app = express()
         this.port = process.env.PORT
         this.usuariosPath='/api/usuarios'
+        this.productosPath='/api/productos'
+        this.ventasPath='/api/ventas'
+
 
 
        // middlewares()
@@ -35,6 +38,8 @@ class Server {
 
     routes(){
         this.app.use(this.usuariosPath, require('../routes/usuarios'))
+        this.app.use(this.productosPath, require('../routes/productos'))
+        this.app.use(this.ventasPath, require('../routes/ventas'))
     }
 
     listen(){
