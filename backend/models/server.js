@@ -1,11 +1,13 @@
 const express = require('express')
 const cors = require('cors')
+const mongoose = require("mongoose");
+var uniqueValidator = require("mongoose-unique-validator");
 
 class Server {
 
     constructor(){
         this.app = express()
-        this.port = process.env.PORT
+        this.mongoose = process.env.MONGODB_CONNECT
         this.usuariosPath='/api/usuarios'
         this.productosPath='/api/productos'
         this.ventasPath='/api/ventas'
